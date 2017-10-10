@@ -9,13 +9,17 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  
   constructor(public auth: AdminAuthService, 
               private flashMsg:FlashMessagesService, 
               private router:Router) { }
 
   ngOnInit() {
   }
+  openMenu(){
+
+  }
+
+      
 
   
   logout(){

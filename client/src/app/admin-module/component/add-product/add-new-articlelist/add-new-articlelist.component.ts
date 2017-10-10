@@ -9,16 +9,18 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./add-new-articlelist.component.css']
 })
 export class AddNewArticlelistComponent implements OnInit, OnDestroy {
-  articleName:articleModel[] = [];
+  articleName:Array<string>= [];
   artName$:Subscription;
   constructor(private articles:ArticlesService) { }
 
   ngOnInit() {
-
-    this.artName$ = this.articles.getArticlename().subscribe( (data) =>{
-       if(data){
-        this.articleName = data.name;
-       }
+    
+    this.articles.articlename.subscribe( names =>{
+        this.artName$ = this.articles.getArticlename().subscribe( (data) =>{
+          if(data){
+           this.articleName = data.name;
+          }
+       });
     });
 
   }
@@ -28,6 +30,7 @@ export class AddNewArticlelistComponent implements OnInit, OnDestroy {
       if(!data) alert('something wrong');
     });
   }
+
   ngOnDestroy() {
     this.artName$.unsubscribe();
   }

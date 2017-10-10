@@ -1,37 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@font-face {
-    font-family: 'icomoon';
-    src: url('./assets/fonts/icomoon.eot?w83xz8');
-    src: url('./assets/fonts/icomoon.eot?w83xz8#iefix') format('embedded-opentype'), url('./assets/fonts/icomoon.ttf?w83xz8') format('truetype'), url('./assets/fonts/icomoon.woff?w83xz8') format('woff'), url('./assets/fonts/icomoon.svg?w83xz8#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-left-arrow:before {
-    content: "\e900";
-}
-
-.icon-right-arrow:before {
-    content: "\e901";
-}
-
 body {
     padding: 0;
     margin: 0;
@@ -40,6 +9,14 @@ body {
     background-color: #E5E5E5;
 }
 
+.mat-form-field,
+.mat-button,
+.mat-fab,
+.mat-icon-button,
+.mat-mini-fab,
+.mat-raised-button {
+    font-family: 'Ubuntu', sans-serif;
+}
 
 .mat-focused .mat-input-placeholder {
     color: #9c27b0;
@@ -66,6 +43,7 @@ body {
     color: rgba(0, 0, 0, .38);
     background-color: transparent !important;
 }
+
 
 /* .dropdown {
     cursor: pointer;
@@ -121,7 +99,8 @@ h5,
 h6,
 p,
 div,
-a,hr {
+a,
+hr {
     margin: 0;
     padding: 0;
 }
@@ -140,7 +119,7 @@ button:focus {
     background: #000;
     color: #fff;
     animation: slideDown 0.3s ease-in;
-    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, .56), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);  
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, .56), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
 }
 
 @keyframes slideDown {
@@ -168,38 +147,43 @@ button:focus {
     top: -25px;
 }
 
-.common-wrapper.mt-5{
-   /* margin: 50px auto !important; */
-   position: absolute;
-   top:55%;
-   left:50%;
-   transform:translate(-50%,-50%);
+.common-wrapper.mt-5 {
+    /* margin: 50px auto !important; */
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.w-49{
+.w-49 {
     width: 49%;
 }
-.dash{
+
+.dash {
     width: 30px;
-    height:2px;
+    height: 2px;
     background: #f1f1f1;
     margin: 15px auto 10px;
 }
-.fixed-top{
-    z-index:1;
+
+.fixed-top {
+    z-index: 1;
 }
 
-.mat-menu-content{
-    padding:0 !important;
+.mat-menu-content {
+    padding: 0 !important;
 }
-button.mat-menu-item{
-    font-size:14px;
+
+button.mat-menu-item {
+    font-size: 14px;
 }
-.mat-menu-item.active{
+
+.mat-menu-item.active {
     background: linear-gradient(60deg, #ab47bc, #7b1fa2);
-    color:#fff;
+    color: #fff;
 }
+
 .mat-menu-item:hover:not([disabled]) {
     background: linear-gradient(60deg, #ab47bc, #7b1fa2);
-    color:#fff;
+    color: #fff;
 }

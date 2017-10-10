@@ -3,10 +3,23 @@ import { url } from '../../environments/environment';
 import { articleModel } from '../models/articlename.models';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/Rx';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Injectable()
 export class ArticlesService {
   private url:string = url;
+
+  articlename:BehaviorSubject<string> = new BehaviorSubject<string>('');
+  //artname = this.articlename.asObservable();
+  
+  /**
+   * get change article name through Behaviour subject
+   */
+  getArtName$(name:string){
+    this.articlename.next(name);
+  }
+
   constructor(private _http:Http) { }
 
   /**
