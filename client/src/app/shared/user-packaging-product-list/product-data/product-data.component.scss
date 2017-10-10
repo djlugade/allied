@@ -1,0 +1,24 @@
+.product-data-wrapper {
+    margin-left: 45px;
+    padding: 20px 45px;
+    margin-top: 135px;
+    transition: all 0.2s ease;
+    &.full-width {
+        margin-left: 20%;
+    }
+    h1 {
+        margin-bottom: 15px;
+    }
+}
+
+.row {
+    justify-content: space-around;
+}
+
+.w-15 {
+    width: 19.3%;
+    background: red;
+    height: 200px;
+    margin: 0px 0px 15px 0px;
+    transition: all 0.2s ease;
+}

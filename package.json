@@ -1,0 +1,29 @@
+{
+  "name": "allied",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djlugade/allied.git"
+  },
+  "author": "dj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djlugade/allied/issues"
+  },
+  "homepage": "https://github.com/djlugade/allied#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "jsonwebtoken": "^8.0.1",
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.12.0"
+  }
+}

@@ -1,0 +1,34 @@
+<h5>Add to Article Category</h5>
+<p class="dash"></p>
+<form #articlelistform="ngForm">
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Article list name" name="articlelistname" #articlelistname="ngModel" ngModel required>
+        </mat-form-field>
+        <p *ngIf="!articlelistname.valid && articlelistname.touched">
+            <span class="has-error" *ngIf="articlelistname.errors?.required">Article list name can not be empty.</span>
+        </p>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Article name" ngModel name="articlename" #articlename="ngModel" required>
+          <mat-option *ngFor="let name of articleName" [value]="name.articlename">
+              {{name.articlename}}        
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="icon name" name="iconname" #iconname="ngModel" ngModel required>
+        </mat-form-field>
+        <p *ngIf="!iconname.valid && iconname.touched">
+            <span class="has-error" *ngIf="iconname.errors?.required">icon name can not be empty.</span>
+        </p>
+    </div>
+
+    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleList(articlelistform)">Add Article list</button>
+</form> 
+

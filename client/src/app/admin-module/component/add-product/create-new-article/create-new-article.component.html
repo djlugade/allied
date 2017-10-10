@@ -1,0 +1,14 @@
+<h5>Create new Article</h5>
+<p class="dash"></p>
+<form #articlenameform="ngForm">
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Article name" name="articlename" #articlename="ngModel" ngModel required>
+        </mat-form-field>
+        <p *ngIf="!articlename.valid && articlename.touched">
+            <span class="has-error" *ngIf="articlename.errors?.required">Article name can not be empty.</span>
+        </p>
+    </div>
+
+    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleName(articlenameform)">Create Article</button>
+</form> 

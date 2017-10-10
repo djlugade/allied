@@ -1,0 +1,6 @@
+<div class="list-wrapper" [ngClass]="{'full-width':isFullWidth}">
+    <p class="full-width-toggle" (click)="widthToggle()"><i [ngClass]="isFullWidth ? 'icon-left-arrow':'icon-right-arrow'"></i></p>
+
+
+    <button md-raised-button color="accent" (click)="addCustProd()">ADD</button>
+</div>

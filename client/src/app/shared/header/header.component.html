@@ -1,0 +1,38 @@
+<nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand">Allied</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+                <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" >Home</a>
+            </li> -->
+        </ul>
+        <ul class="navbar-nav my-lg-0">
+                <ng-container *ngIf="auth.loggedIn()">
+                    <li class="nav-item" >
+                        <a class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" routerLink="/admin">Home</a>
+                    </li>
+                    
+                   
+                    <button mat-button [matMenuTriggerFor]="menu" >
+                        Welcome: {{auth.getUserName()}} <i class="">V</i>
+                    </button>
+                    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                        <button mat-menu-item routerLink="/admin/article-edit" routerLinkActive="active">Create Article</button>
+                        <button mat-menu-item >Show Articles</button>
+                        <hr />
+                        <button mat-menu-item  (click)="logout()">Log Out</button>
+                    </mat-menu>
+                    
+                </ng-container>
+             <li class="nav-item" *ngIf="!auth.loggedIn()">
+                <cart></cart>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="mt-60"></div>

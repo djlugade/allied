@@ -1,0 +1,55 @@
+.badge-num {
+    box-sizing: border-box;
+    background-color: #e91e63;
+    cursor: default;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    height: 24px;
+    line-height: 17px;
+    top: 3px;
+    right: 8px;
+    border: 3px solid #fff;
+    position: absolute;
+    text-align: center;
+    width: 24px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    //animation: pulse 1.5s 1;
+    &.active.badge-num:after {
+        animation: sonar 1.4s 1;
+        animation-iteration-count: 2;
+    }
+}
+
+.badge-num:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 2px solid rgba(255, 0, 0, .5);
+    opacity: 0;
+    border-radius: 50%;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+
+@keyframes sonar {
+    0% {
+        transform: scale(.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+// @keyframes pulse {
+//     0% {transform: scale(1);}
+//     20% {transform: scale(1.4); } 
+//     50% {transform: scale(.9);} 
+//     80% {transform: scale(1.2);} 
+//     100% {transform: scale(1);}
+// }
