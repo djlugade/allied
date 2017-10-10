@@ -4,8 +4,8 @@ const articles = require("../models/articles");
 const router = express.Router();
 
 //live connect
-// const mongojs = require('mongojs');
-// const db = mongojs('mongodb://poonam:poonam30@ds033113.mlab.com:33113/allied', ['articlelist']);
+const mongojs = require('mongojs');
+const db = mongojs('mongodb://poonam:poonam30@ds033113.mlab.com:33113/allied', ['articles']);
 
 router.post('/articles-name', (req, res) => {
     let article = new articles({
@@ -26,45 +26,51 @@ router.get('/articlename', (req, res) => {
         if (err) return res.json({ 'success': false, 'msg': err });
 
         if (!data) return res.json({ 'success': false, 'msg': 'No data found' });
-
         return res.json({ 'success': true, 'name': data });
     });
 });
 
-//router.post('/article-list', (req, res) => {
-// const existingData = {
-//     "articlelistname": req.body.articlelistname,
-//     "iconname": req.body.iconame
-// };
+router.post('/article-list', (req, res) => {
+    // const list = {
+    //     "articlelistname": req.body.articlelistname,
+    //     "iconname": req.body.iconame
+    // };
+    // db.articles.update({ 'articlename': req.body.articlename }, {
+    //     "$set": {
+    //         "articlename.$list": list
+    //     }
+    // });
 
-// db.articles.save({ 'articlename': req.body.articlename }, { $push: { existingData } });
+    db.articles.update({
+            "articlename": req.body.articlename
+        }, {
+            "$push": {
+                "list": {
+                    "articlelistname": req.body.articlelistname,
+                    "iconname": req.body.iconame
+                }
+            }
+        })
+        //  (err) => {
+        //     if (err) return res.json({ 'success': false, 'msg': `error ${err.message}` });
 
-//articles.findOne({"articlename":req.body.articlename}, (err, data)=>{
-//     if(err) return res.json({ 'success': false, 'msg': err});
+    //     return res.json({ 'success': true });
+    // });
 
-//     if(data){
+    // db.articles.findOne({ 'articlename': req.body.articlename }, (err, data) => {
+    //     if (err) return res.json({ 'success': false, 'msg': `error ${err.message}` });
 
-//     //     existingData.save(err=>{
-//     //     if(err) return res.json({ 'success': false, 'msg': err});
-//     //     return res.json({ 'success': true})
-//     // });
-//     }
-// });
-// var d = [
-//     {"room": req.body.articlename,
-//         "data":[{
-//             "articlelistname":req.body.articlelistname,
-//             "iconname":req.body.iconame
-//         }]}
-// ]
-// var list = new articlelist({
-//         "articlelistname": req.body.articlelistname,
-//         "iconname": req.body.iconname,
-// });
-// list.save(err=>{
-//     if(err) return res.json({ 'success': false, 'msg': err});
-//     return res.json({ 'success': true})
-// })
-//});
+    //     if (!data) return res.json({ 'success': false, 'msg': `Data ${err.message}` });
+
+    //     const list = {
+    //         "articlelistname": req.body.articlelistname,
+    //         "iconname": req.body.iconame
+    //     };
+
+    //     db.articles.save({ $push: { list: list } });
+    //     return res.json({ 'success': true, 'msg': data });
+
+    // });
+});
 
 module.exports = router;

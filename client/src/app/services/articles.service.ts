@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/Rx';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AdminAuthService } from './admin-auth.service';
 
 @Injectable()
 export class ArticlesService {
@@ -46,6 +47,7 @@ export class ArticlesService {
   articleList(value):Observable<any>{
     return this._http.post(`${this.url}/articles/article-list`, value)
     .map((res)=>{
+      console.log(res.json());
       return res.json();
     });
   }
