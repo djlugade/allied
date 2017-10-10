@@ -14,10 +14,13 @@
         <mat-form-field>
             <mat-select placeholder="Article name" ngModel name="articlename" #articlename="ngModel" required>
                 <mat-option *ngFor="let name of articleName" [value]="name.articlename">
-                    {{name.articlename | uppercase}}
+                    {{ name.articlename | uppercase}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
+        <p *ngIf="!articlename.valid && articlename.touched">
+            <span class="has-error" *ngIf="articlename.errors?.required">Article list name can not be empty.</span>
+        </p>
     </div>
 
     <div class="form-group">
@@ -29,5 +32,7 @@
         </p>
     </div>
 
-    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleList(articlelistform)">Add Article list</button>
+    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" 
+        (click)="articleList(articlelistform)"
+        [disabled]="!articlelistform.valid">Add Article list</button>
 </form>

@@ -5,27 +5,26 @@ import { articleModel } from '../../../../models/articlename.models';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
-  selector: 'create-new-article',
+  selector: 'app-create-new-article',
   templateUrl: './create-new-article.component.html',
   styleUrls: ['./create-new-article.component.css']
 })
 export class CreateNewArticleComponent implements OnInit {
-  artName:string;
-  constructor(private _articles:ArticlesService,
+  artName: string;
+  constructor(private _articles: ArticlesService,
               private _flashMsg: FlashMessagesService) { }
-      
-  ngOnInit() {
-    
-  }
-  
-  articleName(form:NgForm):void{
-    var articlename= { 'articlename': form.value.articlename.toLowerCase()};
+  ngOnInit() {}
+
+  articleName(form: NgForm): void {
+    const articlename = { 'articlename': form.value.articlename.toLowerCase()};
     this._articles.saveArticlename(articlename).take(1)
-    .subscribe( data =>{
-      if(!data.success) return this._flashMsg.show(data.msg, { timeout: 3000 });
+    .subscribe( data => {
+      if ( !data.success ) {
+         return this._flashMsg.show(data.msg, { timeout: 3000 });
+      }
       form.reset();
       this._articles.getArtName$(articlename.articlename);
-      return this._flashMsg.show("Article Name added Successfuly...", { timeout: 3000 });
+      return this._flashMsg.show(' Article Name added Successfuly... ', { timeout: 3000 });
     });
   };
 }
