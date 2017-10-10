@@ -17,14 +17,14 @@ export class AdminAuthService {
   constructor(private _http: Http,) {   
    }
   
-   authHeaders(){
-       this.option = new RequestOptions({ 
-         headers: new Headers({
-          'Content-Type': 'application/json',
-          //'token': token
-         }) 
-        });
-   }
+  //  authHeaders():any{
+  //      this.option = new RequestOptions({ 
+  //        headers: new Headers({
+  //         'Content-Type': 'application/json',
+  //         'token': this.authToken
+  //        }) 
+  //       });
+  //  }
   
    getUserName():string{
       let a = localStorage.getItem('user');

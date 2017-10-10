@@ -3,10 +3,24 @@ import { url } from '../../environments/environment';
 import { articleModel } from '../models/articlename.models';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/Rx';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { AdminAuthService } from './admin-auth.service';
 
 @Injectable()
 export class ArticlesService {
   private url:string = url;
+
+  articlename:BehaviorSubject<string> = new BehaviorSubject<string>('');
+  //artname = this.articlename.asObservable();
+  
+  /**
+   * get change article name through Behaviour subject
+   */
+  getArtName$(name:string){
+    this.articlename.next(name);
+  }
+
   constructor(private _http:Http) { }
 
   /**
@@ -33,6 +47,7 @@ export class ArticlesService {
   articleList(value):Observable<any>{
     return this._http.post(`${this.url}/articles/article-list`, value)
     .map((res)=>{
+      console.log(res.json());
       return res.json();
     });
   }

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const toLower = require('./common-function');
+
 const bcrypt = require('bcrypt');
 
 mongoose.Promise = global.Promise;
@@ -12,9 +14,7 @@ const admin = new Schema({
     password: { type: String, required: true }
 });
 
-function toLower(str) {
-    return str.toLowerCase();
-}
+
 // hash the password
 admin.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

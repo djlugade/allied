@@ -11,13 +11,13 @@
     </div>
 
     <div class="form-group">
-      <mat-form-field>
-        <mat-select placeholder="Article name" ngModel name="articlename" #articlename="ngModel" required>
-          <mat-option *ngFor="let name of articleName" [value]="name.articlename">
-              {{name.articlename}}        
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Article name" ngModel name="articlename" #articlename="ngModel" required>
+                <mat-option *ngFor="let name of articleName" [value]="name.articlename">
+                    {{name.articlename | uppercase}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <div class="form-group">
@@ -30,5 +30,4 @@
     </div>
 
     <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleList(articlelistform)">Add Article list</button>
-</form> 
-
+</form>

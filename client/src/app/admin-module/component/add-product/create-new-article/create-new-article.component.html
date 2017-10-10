@@ -1,6 +1,6 @@
 <h5>Create new Article</h5>
 <p class="dash"></p>
-<form #articlenameform="ngForm">
+<form #articlenameform="ngForm" (ngSubmit)="articleName(articlenameform)">
     <div class="form-group">
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Article name" name="articlename" #articlename="ngModel" ngModel required>
@@ -10,5 +10,5 @@
         </p>
     </div>
 
-    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleName(articlenameform)">Create Article</button>
-</form> 
+    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" [disabled]="!articlenameform.valid">Create Articles</button>
+</form>

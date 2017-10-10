@@ -11,25 +11,25 @@
             </li> -->
         </ul>
         <ul class="navbar-nav my-lg-0">
-                <ng-container *ngIf="auth.loggedIn()">
-                    <li class="nav-item" >
-                        <a class="nav-link" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact: true}" routerLink="/admin">Home</a>
-                    </li>
-                    
-                   
-                    <button mat-button [matMenuTriggerFor]="menu" >
-                        Welcome: {{auth.getUserName()}} <i class="">V</i>
+            <ng-container *ngIf="auth.loggedIn()">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/admin">Home</a>
+                </li>
+
+
+                <button mat-button [matMenuTriggerFor]="menu" (onMenuOpen)="isHidden = true">
+                        Welcome: {{auth.getUserName()}}
+                         <i class="fa" [ngClass]="{'fa-angle-down': !isHidden, 'fa-angle-up': isHidden}"></i>
                     </button>
-                    <mat-menu #menu="matMenu" [overlapTrigger]="false">
-                        <button mat-menu-item routerLink="/admin/article-edit" routerLinkActive="active">Create Article</button>
-                        <button mat-menu-item >Show Articles</button>
-                        <hr />
-                        <button mat-menu-item  (click)="logout()">Log Out</button>
-                    </mat-menu>
-                    
-                </ng-container>
-             <li class="nav-item" *ngIf="!auth.loggedIn()">
+                <mat-menu #menu="matMenu" [overlapTrigger]="false" (close)="isHidden = false">
+                    <button mat-menu-item routerLink="/admin/article-edit" routerLinkActive="active">Create Article</button>
+                    <button mat-menu-item>Show Articles</button>
+                    <hr />
+                    <button mat-menu-item (click)="logout()">Log Out</button>
+                </mat-menu>
+
+            </ng-container>
+            <li class="nav-item" *ngIf="!auth.loggedIn()">
                 <cart></cart>
             </li>
         </ul>
