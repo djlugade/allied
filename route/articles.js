@@ -22,7 +22,7 @@ router.post('/articles-name', (req, res) => {
 
 
 router.get('/articlename', (req, res) => {
-    articles.find({}, (err, data) => {
+    db.articles.find({}, {'articlename': true}).toArray((err, data) => {
         if (err) return res.json({ 'success': false, 'msg': err });
 
         if (!data) return res.json({ 'success': false, 'msg': 'No data found' });
@@ -31,46 +31,19 @@ router.get('/articlename', (req, res) => {
 });
 
 router.post('/article-list', (req, res) => {
-    // const list = {
-    //     "articlelistname": req.body.articlelistname,
-    //     "iconname": req.body.iconame
-    // };
-    // db.articles.update({ 'articlename': req.body.articlename }, {
-    //     "$set": {
-    //         "articlename.$list": list
-    //     }
-    // });
-
-    db.articles.update({
-            "articlename": req.body.articlename
-        }, {
-            "$push": {
-                "list": {
+     db.articles.update({"articlename": req.body.articlename}, 
+     {"$push": 
+            {"list": 
+                {
                     "articlelistname": req.body.articlelistname,
-                    "iconname": req.body.iconame
+                    "iconname": req.body.iconname
                 }
             }
-        })
-        //  (err) => {
-        //     if (err) return res.json({ 'success': false, 'msg': `error ${err.message}` });
-
-    //     return res.json({ 'success': true });
-    // });
-
-    // db.articles.findOne({ 'articlename': req.body.articlename }, (err, data) => {
-    //     if (err) return res.json({ 'success': false, 'msg': `error ${err.message}` });
-
-    //     if (!data) return res.json({ 'success': false, 'msg': `Data ${err.message}` });
-
-    //     const list = {
-    //         "articlelistname": req.body.articlelistname,
-    //         "iconname": req.body.iconame
-    //     };
-
-    //     db.articles.save({ $push: { list: list } });
-    //     return res.json({ 'success': true, 'msg': data });
-
-    // });
+        },(err)=>{
+            if (err) return res.json({ 'success': false, 'msg': `error ${err.message}` });
+            return res.json({ 'success': true });
+        });
+       
 });
 
 module.exports = router;
