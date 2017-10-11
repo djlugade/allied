@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { url } from '../../environments/environment';
-import { articleModel } from '../models/articlename.models';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/Rx';
@@ -9,24 +8,22 @@ import { AdminAuthService } from './admin-auth.service';
 
 @Injectable()
 export class ArticlesService {
-  private url:string = url;
+  private url: string = url;
 
-  articlename:BehaviorSubject<string> = new BehaviorSubject<string>('');
-  //artname = this.articlename.asObservable();
-  
+  articlename: BehaviorSubject<string> = new BehaviorSubject<string>('');
   /**
    * get change article name through Behaviour subject
    */
-  getArtName$(name:string){
+  getArtName$(name: string) {
     this.articlename.next(name);
   }
 
-  constructor(private _http:Http) { }
+  constructor(private _http: Http) { }
 
   /**
    * get article name
    */
-  getArticlename():Observable<any>{
+  getArticlename(): Observable<any> {
     return this._http.get(`${this.url}/articles/articlename`)
     .map( (res) => res.json());
   }
@@ -34,9 +31,9 @@ export class ArticlesService {
   /**
    * save article name
    */
-  saveArticlename(value):Observable<any>{
+  saveArticlename(value): Observable<any> {
     return this._http.post(`${this.url}/articles/articles-name`, value)
-    .map((res)=>{
+    .map((res) => {
       return res.json();
     });
   }
@@ -44,9 +41,9 @@ export class ArticlesService {
   /**
    * save article list
    */
-  articleList(value):Observable<any>{
+  articleList(value): Observable<any> {
     return this._http.post(`${this.url}/articles/article-list`, value)
-    .map((res)=>{
+    .map((res) => {
       console.log(res.json());
       return res.json();
     });

@@ -1,0 +1,18 @@
+<div class="custom-article-wrapper">
+    <h4>Add The Articles That Are Not In List</h4>
+    <form #f="ngForm">
+        <div class="form-group">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Add custom article" name="custArticle" #custArticle="ngModel" ngModel required>
+            </mat-form-field>
+            <p *ngIf="!custArticle.valid && custArticle.touched">
+                <span class="has-error" *ngIf="custArticle.errors?.required">Can not be Empty</span>
+            </p>
+        </div>
+
+        <!-- Count component -->
+        <app-update-product-count [prodCount]=""></app-update-product-count>
+
+        <button mat-raised-button class="mt-3" color="accent" [disabled]="!f.valid && ">ADD</button>
+    </form>
+</div>

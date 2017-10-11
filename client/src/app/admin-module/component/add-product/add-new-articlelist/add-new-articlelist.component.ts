@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ArticlesService } from '../../../../services/articles.service';
-import { articleModel } from '../../../../models/articlename.models';
 import { Subscription } from 'rxjs/Subscription';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -10,16 +9,17 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./add-new-articlelist.component.css']
 })
 export class AddNewArticlelistComponent implements OnInit, OnDestroy {
-  articleName: Array<string>= [];
+  articleName: any  = [];
   artName$: Subscription;
   constructor(private articles: ArticlesService, private _flashMsg: FlashMessagesService) { }
 
   ngOnInit() {
-    this.articles.articlename.subscribe( names => {
-        this.artName$ = this.articles.getArticlename().subscribe( (data) => {
-          console.log(data.name);
-           this.articleName = data.name;
-       });
+    this.artName$ = this.articles.getArticlename().subscribe( (data) => {
+      console.log(data.name);
+       this.articleName = data.name;
+   });
+    this.articles.articlename.subscribe( (names: string) => {
+      this.articleName.push({'articlename' : names});
     });
   }
 

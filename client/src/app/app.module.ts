@@ -25,12 +25,16 @@ import { AdminAuthGuardService } from './services/guards/admin-auth-guard.servic
 import { NotAuthGuard } from './services/guards/not-auth.guard';
 import { AdminAuthService } from './services/admin-auth.service';
 import { ArticlesService } from './services/articles.service';
+import { AddCustomProdComponent } from './component/user-packaging-product-list/product-list/add-custom-prod/add-custom-prod.component';
+import { UpdateProductCountComponent } from './component/user-packaging-product-list/update-product-count/update-product-count.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    appRoutingComponent
+    appRoutingComponent,
+    AddCustomProdComponent,
+    UpdateProductCountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ArticlesService } from '../../../../services/articles.service';
-import { articleModel } from '../../../../models/articlename.models';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -26,5 +25,5 @@ export class CreateNewArticleComponent implements OnInit {
       this._articles.getArtName$(articlename.articlename);
       return this._flashMsg.show(' Article Name added Successfuly... ', { timeout: 3000 });
     });
-  };
+  }
 }
