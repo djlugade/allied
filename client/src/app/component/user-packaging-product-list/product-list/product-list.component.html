@@ -1,0 +1,19 @@
+<div class="list-wrapper" [ngClass]="{'full-width':isFullWidth}">
+    <p class="full-width-toggle" (click)="widthToggle()">
+        <i class="fa" [ngClass]="isFullWidth ? 'fa-arrow-left':'fa-arrow-right'"></i>
+    </p>
+    <mat-expansion-panel (closed)="panel">
+        <mat-expansion-panel-header>
+            <button mat-raised-button color="accent" (click)="showCutomProdlist() " class="add-custom-articles ">
+                 <mat-icon aria-label="Example icon-button with a heart icon " >
+                     <i class="fa fa-plus " aria-hidden="true "></i>
+                 </mat-icon>
+             </button>
+        </mat-expansion-panel-header>
+
+        <!-- Custom product list add Component -->
+        <app-add-custom-prod></app-add-custom-prod>
+        <!-- // Custom product list add Component -->
+
+    </mat-expansion-panel>
+</div>

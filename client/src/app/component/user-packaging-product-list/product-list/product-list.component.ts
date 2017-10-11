@@ -6,24 +6,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  isFullWidth:boolean = false;
-  @Output() widthActive = new EventEmitter<boolean>() 
-
+  isFullWidth = false;
+  @Output() widthActive: EventEmitter<boolean> = new EventEmitter<boolean>();
+  panel;
   constructor() { }
-
   ngOnInit() {
   }
 
-  //make width 20% of prod list
-  widthToggle(){
+  // make width 20% of prod list
+  widthToggle(): void {
     this.isFullWidth = !this.isFullWidth;
+    this.panel = false;
     this.widthActive.emit(this.isFullWidth);
   }
 
-  //add custom product list by user show/hide
-  addCustProd(){
-    console.log("clicked");
-    this.widthToggle();
+
+  showCutomProdlist(): void {
+    this.isFullWidth = true;
+    this.widthActive.emit(this.isFullWidth);
   }
 
 }

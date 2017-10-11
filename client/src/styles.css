@@ -14,8 +14,21 @@ body {
 .mat-fab,
 .mat-icon-button,
 .mat-mini-fab,
-.mat-raised-button {
+.mat-raised-button,
+.mat-expansion-panel-header {
     font-family: 'Ubuntu', sans-serif;
+}
+
+.mat-expansion-indicator::after {
+    display: none !important;
+}
+
+.mat-expansion-panel-content {
+    overflow: hidden;
+    background: #bbbbbb;
+    padding: 20px 0 5px;
+    margin: 0 8px;
+    border-radius: 5px;
 }
 
 .mat-focused .mat-input-placeholder {
@@ -42,6 +55,19 @@ body {
 .mat-input-invalid .mat-input-ripple {
     color: rgba(0, 0, 0, .38);
     background-color: transparent !important;
+}
+
+raised-button.mat-primary[disabled],
+.mat-raised-button.mat-warn[disabled],
+.mat-raised-button[disabled][disabled] {
+    background-color: #ff4081;
+    color: #fff;
+}
+
+.add-custom-articles .mat-button-wrapper {
+    padding: 8px 0 !important;
+    display: block !important;
+    line-height: 0 !important;
 }
 
 
@@ -85,10 +111,10 @@ button:focus {
 
 .has-error {
     position: relative;
-    top: -15px;
+    top: -17px;
     display: inline-block;
-    color: red;
-    font-size: 14px;
+    color: #c12a2a;
+    font-size: 12px;
 }
 
 h1,
