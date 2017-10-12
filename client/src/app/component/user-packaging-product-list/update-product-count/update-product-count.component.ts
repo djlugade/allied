@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./update-product-count.component.css']
 })
 export class UpdateProductCountComponent implements OnInit {
-  @Output('prodCount') outCount:EventEmitter<number> = new EventEmitter<number>();
+  //@Output('prodCount') outCount:EventEmitter<number> = new EventEmitter<number>();
   prodCount = 0;
 
   constructor() { }
