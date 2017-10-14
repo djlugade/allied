@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './update-product-count.component.html',
   styleUrls: ['./update-product-count.component.css']
 })
-export class UpdateProductCountComponent implements OnInit {
-  @Output() outCount: EventEmitter<number> = new EventEmitter<number>();
+export class UpdateProductCountComponent implements OnInit 
   prodCount = 0;
 
   constructor() { }
