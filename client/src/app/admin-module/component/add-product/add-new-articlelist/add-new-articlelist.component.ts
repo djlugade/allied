@@ -9,22 +9,25 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./add-new-articlelist.component.css']
 })
 export class AddNewArticlelistComponent implements OnInit, OnDestroy {
-  articleName: any  = [];
+  articleName: Array<string>= [];
   artName$: Subscription;
   constructor(private articles: ArticlesService, private _flashMsg: FlashMessagesService) { }
 
   ngOnInit() {
-    this.artName$ = this.articles.getArticlename().subscribe( (data) => {
-      console.log(data.name);
-       this.articleName = data.name;
-   });
-    this.articles.articlename.subscribe( (names: string) => {
-      this.articleName.push({'articlename' : names});
+    this.articles.articlename.subscribe( names => {
+        this.artName$ = this.articles.getArticlename().subscribe( (data) => {
+          console.log(data.name);
+           this.articleName = data.name;
+       });
     });
   }
 
   articleList(form): void {
-    const listname = {'articlelistname': form.value.articlelistname, 'iconname': form.value.iconname, 'articlename': form.value.articlename}
+    const listname = {
+      'articlelistname': form.value.articlelistname,
+       'iconname': form.value.iconname,
+        'articlename': form.value.articlename
+      };
 
     this.articles.articleList(listname).subscribe( data => {
       if (!data.success) {

@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-custom-prod.component.css']
 })
 export class AddCustomProdComponent implements OnInit {
-
+  curprodCount: number;
   constructor() { }
 
   ngOnInit() {
+  }
+  addCustProd() {
+    console.log('h');
+  }
+  prodCount(count: number) {
+    console.log(count);
+    this.curprodCount = count;
   }
 
 }
