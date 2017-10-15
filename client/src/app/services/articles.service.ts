@@ -11,11 +11,28 @@ export class ArticlesService {
   private url: string = url;
 
   articlename: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  /**
+  totArticleCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+    /**
    * get change article name through Behaviour subject
    */
   getArtName$(name: string) {
     this.articlename.next(name);
+  }
+
+  /**
+   * total article count
+   */
+  getTotatlArticleCount$(count: number) {
+    this.totArticleCount.next(count);
+  }
+
+  /**
+   * articlelist name all
+   */
+  getArtilcleList(): Observable<any> {
+    return this._http.get(`${this.url}/articles/alllist`).map( res =>{
+        return res.json();
+    });
   }
 
   constructor(private _http: Http) { }

@@ -10,5 +10,14 @@
         </p>
     </div>
 
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Article icon name" name="articleiconname" #articleiconname="ngModel" ngModel required>
+        </mat-form-field>
+        <p *ngIf="!articleiconname.valid && articleiconname.touched">
+            <span class="has-error" *ngIf="articleiconname.errors?.required">Article name can not be empty.</span>
+        </p>
+    </div>
+
     <button class="w-50 m-auto  d-block" mat-raised-button color="accent" [disabled]="!articlenameform.valid">Create Articles</button>
 </form>

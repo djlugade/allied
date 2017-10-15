@@ -14,6 +14,7 @@ export class AddCustomProdComponent implements OnInit {
   addCustProd() {
     console.log('h');
   }
+
   prodCount(count: number) {
     console.log(count);
     this.curprodCount = count;

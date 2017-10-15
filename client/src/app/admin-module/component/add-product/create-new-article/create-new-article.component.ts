@@ -15,7 +15,13 @@ export class CreateNewArticleComponent implements OnInit {
   ngOnInit() {}
 
   articleName(form: NgForm): void {
-    const articlename = { 'articlename': form.value.articlename.toLowerCase()};
+    const title = form.value.articlename.toLowerCase().replace(/ /g, '') ;
+    console.log(title);
+    const articlename = {
+      'title' :  title,
+      'articlename': form.value.articlename.toLowerCase(),
+      'articleiconname': form.value.articleiconname
+    };
     this._articles.saveArticlename(articlename).take(1)
     .subscribe( data => {
       if ( !data.success ) {

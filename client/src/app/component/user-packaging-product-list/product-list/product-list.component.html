@@ -2,6 +2,20 @@
     <p class="full-width-toggle" (click)="widthToggle()">
         <i class="fa" [ngClass]="isFullWidth ? 'fa-arrow-left':'fa-arrow-right'"></i>
     </p>
+    <div class="">
+        <h4>Select Articles</h4>
+        <a class="article-list" [ngClass]="{'active' : !listname}" routerLink="/list">
+            <i class="">A</i>
+            <p>ALL Articles</p>
+        </a>
+
+        <a class="article-list" [ngClass]="{'active': listname == list.title}" *ngFor="let list of articlelisdata" routerLink="/list" [queryParams]="{name:list.title}">
+            <i class="{{list.articleiconname}}"></i>
+            <p>{{list.articlename | uppercase}}</p>
+        </a>
+
+    </div>
+
     <mat-expansion-panel (closed)="panel">
         <mat-expansion-panel-header>
             <button mat-raised-button color="accent" (click)="showCutomProdlist() " class="add-custom-articles ">
