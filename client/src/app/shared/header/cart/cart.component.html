@@ -1,1 +1,1 @@
-<a class="nav-link" href="#">Cart<span class="badge-num">99</span></a>
+<a class="nav-link">Cart<span class="badge-num" *ngIf="totalArticleCount > 0" [class.active]="active">{{totalArticleCount}}</span></a>

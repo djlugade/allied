@@ -23,10 +23,11 @@ export class AddNewArticlelistComponent implements OnInit, OnDestroy {
   }
 
   articleList(form): void {
+    const name = form.value.articlename.replace(/\s+/, '');
     const listname = {
       'articlelistname': form.value.articlelistname,
-       'iconname': form.value.iconname,
-        'articlename': form.value.articlename
+       'iconname': form.value.iconname ? form.value.iconname : 'icon-delivery-truck-with-circular-clock',
+        'articlename': name
       };
 
     this.articles.articleList(listname).subscribe( data => {

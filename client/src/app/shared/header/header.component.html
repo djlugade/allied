@@ -23,7 +23,7 @@
                     </button>
                 <mat-menu #menu="matMenu" [overlapTrigger]="false" (close)="isHidden = false">
                     <button mat-menu-item routerLink="/admin/article-edit" routerLinkActive="active">Create Article</button>
-                    <button mat-menu-item>Show Articles</button>
+                    <button mat-menu-item routerLink="/list">Show Articles</button>
                     <hr />
                     <button mat-menu-item (click)="logout()">Log Out</button>
                 </mat-menu>

@@ -7,7 +7,9 @@ mongoose.Promise = global.Promise;
 
 
 const articles = new Schema({
-    articlename: { type: String, required: true, unique: true, set: toLower }
+    articlename: { type: String, required: true, unique: true, set: toLower },
+    articleiconname: { type: String, required: true, set: toLower },
+    title: { type: String, set: toLower }
 });
 
 

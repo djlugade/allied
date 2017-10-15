@@ -25,14 +25,12 @@
 
     <div class="form-group">
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="icon name" name="iconname" #iconname="ngModel" ngModel required>
+            <input matInput placeholder="icon name" name="iconname" #iconname="ngModel" ngModel>
         </mat-form-field>
-        <p *ngIf="!iconname.valid && iconname.touched">
+        <!-- <p *ngIf="!iconname.valid && iconname.touched">
             <span class="has-error" *ngIf="iconname.errors?.required">icon name can not be empty.</span>
-        </p>
+        </p> -->
     </div>
 
-    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" 
-        (click)="articleList(articlelistform)"
-        [disabled]="!articlelistform.valid">Add Article list</button>
+    <button class="w-50 m-auto  d-block" mat-raised-button color="accent" (click)="articleList(articlelistform)" [disabled]="!articlelistform.valid">Add Article list</button>
 </form>

@@ -2,25 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { HttpModule } from "@angular/http";
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { MaterialDesignModule } from './material-design-module/material-design.module';
 import 'hammerjs';
 
-//custom Module 3rd party
-import { FlashMessagesModule } from 'angular2-flash-messages'; 
+// custom Module 3rd party
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { CustomFormsModule } from 'ng2-validation';
-// import { ClickOutsideModule } from 'ng-click-outside';
+import { SlimScrollModule } from 'ng2-slimscroll';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
-//Routing Module
+// Routing Module
 import { AppRoutingModule, appRoutingComponent } from './app-routing.module';
 
-//Component
+// Component
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 
-//Services
+// Services
 import { AdminAuthGuardService } from './services/guards/admin-auth-guard.service';
 import { NotAuthGuard } from './services/guards/not-auth.guard';
 import { AdminAuthService } from './services/admin-auth.service';
@@ -44,7 +45,9 @@ import { UpdateProductCountComponent } from './component/user-packaging-product-
     FormsModule,
     CustomFormsModule,
     FlashMessagesModule,
-   AppRoutingModule
+    SlimScrollModule,
+    Ng2FilterPipeModule,
+    AppRoutingModule
   ],
   providers: [AdminAuthService, AdminAuthGuardService, NotAuthGuard, ArticlesService],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'product-search',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-search.component.css']
 })
 export class ProductSearchComponent implements OnInit {
-
+  @Input('listnameFilter') listnameFilter;
   constructor() { }
 
   ngOnInit() {

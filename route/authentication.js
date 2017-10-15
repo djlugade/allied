@@ -42,7 +42,7 @@ router.post('/login', function(req, res) {
                 if (!password) {
                     return res.json({ 'success': false, msg: 'Password not found' });
                 } else {
-                    let token = jwt.sign({ 'userId': user._id }, config.secret, { expiresIn: '24h' })
+                    let token = jwt.sign({ 'userId': user._id }, config.secret, { expiresIn: '12h' })
                     return res.json({ 'success': true, 'token': token, user: { 'email': user.email } });
                 }
             }
@@ -51,16 +51,16 @@ router.post('/login', function(req, res) {
 
 });
 
-router.use((req, res, next)=>{
+router.use((req, res, next) => {
     var token = req.headers['token'];
-    if(token){
-        jwt.verify(token, config.secret, (err, decoded)=>{
-            if(err){
-               return res.json({'success':false, 'msg': err});
-            } else{
+    if (token) {
+        jwt.verify(token, config.secret, (err, decoded) => {
+            if (err) {
+                return res.json({ 'success': false, 'msg': err });
+            } else {
                 req.decoded = decoded;
                 next();
-            }          
+            }
         });
     }
 });
