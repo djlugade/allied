@@ -10,8 +10,11 @@ import { UserPackagingProductListComponent } from './component/user-packaging-pr
       import { ProductDataComponent } from './component/user-packaging-product-list/product-data/product-data.component';
 import { UserPackagingProductCartComponent } from './component/user-packaging-product-cart/user-packaging-product-cart.component';
 import { ProductSearchComponent } from './component/user-packaging-product-list/product-search/product-search.component';
-import { CartComponent } from './shared/header/cart/cart.component'
+import { CartComponent } from './shared/header/cart/cart.component';
 import { AdminAuthGuardService } from './services/guards/admin-auth-guard.service';
+
+import { PersonalizedMovingQuoteComponent } from './component/personalized-moving-quote/personalized-moving-quote.component';
+import { ConfirmBookingComponent } from './component/confirm-booking/confirm-booking.component';
 
 import { RegisterComponent } from './component/register/register.component';
 import { NotAuthGuard } from './services/guards/not-auth.guard';
@@ -29,6 +32,12 @@ const appRoutes: Routes = [
       component: UserPackagingProductCartComponent,
       canActivate: [NotAuthGuard]
     },
+    { path: 'moving-details',
+      component: PersonalizedMovingQuoteComponent
+    },
+    { path: 'confirm-booking',
+    component: ConfirmBookingComponent
+  },
     { path: 'admin-register', component: RegisterComponent},
     { path: 'login',
       component: LoginComponent,
@@ -39,7 +48,7 @@ const appRoutes: Routes = [
       loadChildren: './admin-module/admin.module#AdminModule',
       canLoad: [AdminAuthGuardService]
     },
-    { path: '',   redirectTo: '/list', pathMatch: 'full' },
+    { path: '',   redirectTo: '/cart', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -63,4 +72,7 @@ export const appRoutingComponent  = [PageNotFoundComponent,
                                     ProductDataComponent,
                                     ProductSearchComponent,
                                     UserPackagingProductCartComponent,
-                                    CartComponent]
+                                    CartComponent,
+                                    PersonalizedMovingQuoteComponent,
+                                    ConfirmBookingComponent
+                                  ];

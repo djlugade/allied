@@ -1,0 +1,36 @@
+<h4>CONFIRM BOOKING</h4>
+
+<form>
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" name="name" #name="ngModel" ngModel required>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" name="email" #email="ngModel" ngModel required>
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Phone number" name="phno" #phno="ngModel" ngModel required>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <textarea matInput placeholder="From Full Address"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <textarea matInput placeholder="Destination Full address"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <button mat-raised-button color="accent">Submit</button>
+    </div>
+</form>
