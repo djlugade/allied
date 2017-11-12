@@ -29,6 +29,8 @@ import { ArticlesService } from './services/articles.service';
 import { AddCustomProdComponent } from './component/user-packaging-product-list/product-list/add-custom-prod/add-custom-prod.component';
 import { UpdateProductCountComponent } from './component/user-packaging-product-list/update-product-count/update-product-count.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

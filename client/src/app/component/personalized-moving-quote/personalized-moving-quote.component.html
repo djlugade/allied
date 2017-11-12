@@ -1,0 +1,117 @@
+<h4>PERSONALISED MOVING QUOTE:-</h4>
+<form>
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput [matDatepicker]="myDatepicker" [min]="minDate" disabled placeholder="mm/dd/yyyy">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker disabled="false" touchUi="true"></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="row no-gutters justify-content-around">
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="From Location" name="fromLocation" #fromLocation="ngModel" ngModel required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Drop Location" name="dropLocation" #dropLocation="ngModel" ngModel required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Pick up Floor" name="pickupFloor" #pickupFloor="ngModel" ngModel required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Drop Floor" name="dropFloor" #dropFloor="ngModel" ngModel required>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-checkbox>Elevator at Pickup Location</mat-checkbox>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <mat-checkbox>Elevator at Drop Location</mat-checkbox>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters justify-content-around align-items-center">
+        <div class="col-sm-1">
+            <div class="form-group">
+                Services
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-select placeholder="Domestic Relocation">
+                        <mat-option value="International Relocation">
+                            International Relocation
+                        </mat-option>
+                        <mat-option value="Corporate Relocation">
+                            Corporate Relocation
+                        </mat-option>
+                        <mat-option value="Office Relocation">
+                            Office Relocation
+                        </mat-option>
+                        <mat-option value="Car Transportation">
+                            Car Transportation
+                        </mat-option>
+                        <mat-option value="Warehouse and Storage">
+                            Warehouse and Storage
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-select placeholder="Enter BHK">
+                        <mat-option value="1 bhk">
+                            1 BHK
+                        </mat-option>
+                        <mat-option value="2 bhk">
+                            2 BHK
+                        </mat-option>
+                        <mat-option value="3 bhk">
+                            3 BHK
+                        </mat-option>
+                        <mat-option value="4 bhk">
+                            4 BHK
+                        </mat-option>
+                        <mat-option value="5 bhk">
+                            5 BHK
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <button mat-raised-button color="accent">Next</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
