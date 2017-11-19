@@ -1,36 +1,50 @@
-<h4>CONFIRM BOOKING</h4>
+<div class="container">
+    <div class="row cart-border-full mb-4 align-items-center pt-3 pb-3 align-items-center justify-content-between">
 
-<form>
-    <div class="form-group">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" name="name" #name="ngModel" ngModel required>
-        </mat-form-field>
+        <i class="icon-delivery-truck-with-circular-clock cart-icon pl-3"></i>
+        <p>Total no fo Articles : 5</p>
+        <button class="mr-3" mat-raised-button color="accent">Edit</button>
     </div>
+    <div class="row">
+        <div class="col-md-7 border-right">
+            <app-personalized-moving-quote></app-personalized-moving-quote>
+        </div>
+        <div class="col-md-5 ">
+            <form #confirmBook="ngForm" class="w-90 m-auto">
+                <h4>CONFIRM</h4>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Name" name="name" #name="ngModel" ngModel required>
+                    </mat-form-field>
+                </div>
 
-    <div class="form-group">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" name="email" #email="ngModel" ngModel required>
-        </mat-form-field>
-    </div>
-    <div class="form-group">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Phone number" name="phno" #phno="ngModel" ngModel required>
-        </mat-form-field>
-    </div>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" name="email" #email="ngModel" ngModel required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Phone number" name="phno" #phno="ngModel" ngModel required>
+                    </mat-form-field>
+                </div>
 
-    <div class="form-group">
-        <mat-form-field>
-            <textarea matInput placeholder="From Full Address"></textarea>
-        </mat-form-field>
-    </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <textarea matInput placeholder="From Full Address"></textarea>
+                    </mat-form-field>
+                </div>
 
-    <div class="form-group">
-        <mat-form-field>
-            <textarea matInput placeholder="Destination Full address"></textarea>
-        </mat-form-field>
-    </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Destination Full address"></textarea>
+                    </mat-form-field>
+                </div>
 
-    <div class="form-group">
-        <button mat-raised-button color="accent">Submit</button>
+                <div class="form-group">
+                    <button mat-raised-button color="accent">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>

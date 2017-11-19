@@ -1,0 +1,40 @@
+.cart-border-full {
+    border: 1px solid #b9b9b9;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #a2a2a0;
+}
+
+.cart-icon {
+    font-size: 46px;
+    color: #6b6b6b;
+}
+
+:host>>>app-update-product-count .row {
+    height: 35px;
+}
+
+:host>>>app-update-product-count button {
+    margin-bottom: 0;
+}
+
+.divider {
+    border-top: 1px solid rgb(202, 198, 198);
+}
+
+.dash {
+    background: #ababab;
+}
+
+.ml-15-minus {
+    margin-left: -15px;
+}
+
+.submit {
+    border-radius: 3px;
+    padding: 2px 0px;
+    background-color: #2cd2b1!important;
+    color: #fff;
+}
