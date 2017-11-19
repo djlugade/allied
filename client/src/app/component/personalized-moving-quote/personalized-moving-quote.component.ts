@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { movingDetails } from '../../models/movingdetails';
 
 @Component({
   selector: 'app-personalized-moving-quote',
@@ -10,6 +11,10 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  saveTempData(form: movingDetails) {
+    console.log(form);
   }
 
 }

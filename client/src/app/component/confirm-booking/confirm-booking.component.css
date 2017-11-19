@@ -1,0 +1,12 @@
+.cart-border-full {
+    border: 1px solid #b9b9b9;
+}
+
+.cart-icon {
+    font-size: 46px;
+    color: #6b6b6b;
+}
+
+:host>>>app-personalized-moving-quote form {
+    width: 95% important;
+}
