@@ -129,7 +129,7 @@ a:hover {
 raised-button.mat-primary[disabled],
 .mat-raised-button.mat-warn[disabled],
 .mat-raised-button[disabled][disabled] {
-    background-color: #ff4081;
+    background-color: #2cd2ac;
     color: #fff;
 }
 
@@ -137,6 +137,17 @@ raised-button.mat-primary[disabled],
     padding: 8px 0 !important;
     display: block !important;
     line-height: 0 !important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.open,
+.navbar-light .navbar-nav .open>.nav-link {
+    color: #FFF;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .6);
 }
 
 
@@ -293,4 +304,12 @@ button.mat-menu-item {
 
 .mat-expansion-panel-body {
     margin: 0 10px 16px !important;
+}
+
+.border-right {
+    border-right: 1px solid #bebebe;
+}
+
+.w-90 {
+    width: 90%;
 }
