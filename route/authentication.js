@@ -46,9 +46,7 @@ router.post('/login', function(req, res) {
                     return res.json({ 'success': true, 'token': token, user: { 'email': user.email } });
                 }
             }
-
         });
-
 });
 
 router.use((req, res, next) => {

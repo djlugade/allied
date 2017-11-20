@@ -40,9 +40,11 @@ app.use(express.static(path.join(__dirname + '/dist/')));
 //routes
 const authenticate = require('./route/authentication');
 const articles = require('./route/articles');
+const userarticles = require('./route/userarticles');
 
 app.use('/auth', authenticate);
 app.use('/articles', articles);
+app.use('/userarticles', userarticles);
 
 
 app.get('/', (req, res) => {
