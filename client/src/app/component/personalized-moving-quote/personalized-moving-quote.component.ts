@@ -7,8 +7,9 @@ import { movingDetails } from '../../models/movingdetails';
   styleUrls: ['./personalized-moving-quote.component.css']
 })
 export class PersonalizedMovingQuoteComponent implements OnInit {
-  minDate = new Date();
-  constructor() { }
+  minDate = new Date(Date.now() + 48 * 3600 * 1000);
+
+  constructor() {}
 
   ngOnInit() {
   }
