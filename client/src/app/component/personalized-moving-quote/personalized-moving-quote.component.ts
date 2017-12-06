@@ -12,8 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./personalized-moving-quote.component.css']
 })
 export class PersonalizedMovingQuoteComponent implements OnInit {
-  minDate = new Date();
+<<<<<<< HEAD
+  
   constructor(private auth: UserDetailsService, private router: Router) { }
+
+  minDate = new Date(Date.now() + 48 * 3600 * 1000);
 
   ngOnInit() {
   }

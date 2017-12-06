@@ -29,7 +29,7 @@ export class CreateNewArticleComponent implements OnInit {
       }
       form.reset();
       this._articles.getArtName$(articlename.articlename);
-      return this._flashMsg.show(' Article Name added Successfuly... ', { timeout: 3000 });
+      return this._flashMsg.show('Article Name added Successfuly... ', { timeout: 3000 });
     });
   }
 }

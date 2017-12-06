@@ -48,7 +48,7 @@ const appRoutes: Routes = [
       loadChildren: './admin-module/admin.module#AdminModule',
       canLoad: [AdminAuthGuardService]
     },
-    { path: '',   redirectTo: '/cart', pathMatch: 'full' },
+    { path: '',   redirectTo: '/moving-details', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
 
