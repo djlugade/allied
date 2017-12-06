@@ -28,7 +28,7 @@ import { AdminAuthService } from './services/admin-auth.service';
 import { ArticlesService } from './services/articles.service';
 import { AddCustomProdComponent } from './component/user-packaging-product-list/product-list/add-custom-prod/add-custom-prod.component';
 import { UpdateProductCountComponent } from './component/user-packaging-product-list/update-product-count/update-product-count.component';
-
+import { UserDetailsService } from './services/user-details.service';
 
 
 @NgModule({
@@ -51,7 +51,7 @@ import { UpdateProductCountComponent } from './component/user-packaging-product-
     Ng2FilterPipeModule,
     AppRoutingModule
   ],
-  providers: [AdminAuthService, AdminAuthGuardService, NotAuthGuard, ArticlesService],
+  providers: [AdminAuthService, AdminAuthGuardService, NotAuthGuard, ArticlesService, UserDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
