@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 
 const path = require('path');
 
-var port = process.env.port || 3000;
+// var port = process.env.port || 3000;
+var port = 3000;
 
 //cross origin
 app.use(cors({
@@ -40,7 +41,7 @@ app.use(express.static(path.join(__dirname + '/dist/')));
 //routes
 const authenticate = require('./route/authentication');
 const articles = require('./route/articles');
-const userarticles = require('./route/articles');
+const userarticles = require('./route/userarticles');
 
 app.use('/auth', authenticate);
 app.use('/articles', articles);
