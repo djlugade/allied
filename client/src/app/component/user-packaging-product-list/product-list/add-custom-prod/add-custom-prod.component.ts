@@ -11,9 +11,7 @@ export class AddCustomProdComponent implements OnInit {
 
   ngOnInit() {
   }
-  addCustProd() {
-    console.log('h');
-  }
+
 
   prodCount(count: number) {
     console.log(count);

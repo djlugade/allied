@@ -9,6 +9,11 @@ const db = mongojs('mongodb://poonam:poonam30@ds033113.mlab.com:33113/allied', [
 //User articles details save
 router.post('/user-details', (req, res) => {
     db.userdetail.save({
+        'name': req.body.fullname,
+        'email': req.body.email,
+        'phno': req.body.phno,
+        'fromAddr': req.body.fromAddr,
+        'toAddr': req.body.toAddr,
         "UserDate": req.body.userDate,
         "Fromlocation": req.body.fromLocation,
         "Droplocation": req.body.dropLocation,

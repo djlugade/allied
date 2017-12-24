@@ -12,40 +12,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./personalized-moving-quote.component.css']
 })
 export class PersonalizedMovingQuoteComponent implements OnInit {
-<<<<<<< HEAD
-  
+
   constructor(private auth: UserDetailsService, private router: Router) { }
 
   minDate = new Date(Date.now() + 48 * 3600 * 1000);
 
   ngOnInit() {
+    if (localStorage.getItem('moving-details') != null) {
+     // this.router.navigate(['/list']);
+    }
   }
 
   saveTempData(form: NgForm) {
-    let pickupLocation: string = form.value.pickupLocation;
-    let dropLocation: string = form.value.dropLocation;
-    pickupLocation = (pickupLocation) ? 'Yes' : 'No';
-    dropLocation = (dropLocation) ? 'Yes' : 'No';
+    let pickupLocation1: string = form.value.pickupLocation1;
+    let dropLocation1: string = form.value.dropLocation1;
+    pickupLocation1 = (pickupLocation1) ? 'Yes' : 'No';
+    dropLocation1 = (dropLocation1) ? 'Yes' : 'No';
     const formValue = {
                     'userDate': form.value.userdate,
                     'fromLocation': form.value.fromLocation,
                     'dropLocation': form.value.dropLocation,
                     'pickupFloor': form.value.pickupFloor,
                     'dropFloor': form.value.dropFloor,
-                    'elevatorPickupLoc': pickupLocation,
-                    'elevatorDropLoc': dropLocation,
+                    'elevatorPickupLoc': pickupLocation1,
+                    'elevatorDropLoc': dropLocation1,
                     'relocation': form.value.relocation,
                     'bhk': form.value.bhk
                     };
+                    localStorage.setItem('moving-details', JSON.stringify(formValue));
+                    this.router.navigate(['/list']);
 
-      this.auth.saveuserDetails(formValue).take(1).subscribe( data => {
-        if (!data.success) {
-           return;
-        }
+      // this.auth.saveuserDetails(formValue).take(1).subscribe( data => {
+      //   if (!data.success) {
+      //      return;
+      //   }
 
-        console.log('succesfully added');
-        this.router.navigate(['/login']);
-      });
+      //   console.log('succesfully added');
+      //   this.router.navigate(['/login']);
+      // });
     }
 }
 

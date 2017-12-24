@@ -38,3 +38,13 @@
     background-color: #2cd2b1!important;
     color: #fff;
 }
+
+.bottom-button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #c7c7c7;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
