@@ -12,15 +12,18 @@ export class CartComponent implements OnInit {
   constructor(private articles: ArticlesService) { }
 
   ngOnInit() {
+   
      this.articles.totArticleCount.subscribe( count => {
-       console.log(count);
-      this.totalArticleCount = this.totalArticleCount + count;
+      const updateProd1 = JSON.parse(localStorage.getItem('allData'));
+      const count1:number = updateProd1 ? updateProd1.length : 0;
+      // console.log(count);
+      this.totalArticleCount = count1 + count;
       this.active = true;
       setTimeout(() => {
         this.active = false;
       }, 1000);
      });
-    console.log(this.articles.totArticleCount);
+    // console.log(this.articles.totArticleCount);
   }
 
 }

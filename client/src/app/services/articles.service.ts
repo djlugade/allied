@@ -9,6 +9,7 @@ import { AdminAuthService } from './admin-auth.service';
 @Injectable()
 export class ArticlesService {
   private url: string = url;
+  a = [];
 
   articlename: BehaviorSubject<string> = new BehaviorSubject<string>('');
   totArticleCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -44,6 +45,36 @@ export class ArticlesService {
     return this._http.get(`${this.url}/articles/articlename`)
     .map( (res) => res.json());
   }
+
+  /**
+   * update count to localstorage
+   */
+  updateCount(prodCount, articlename) {
+    const updateProd = JSON.parse(localStorage.getItem('allData'));
+    updateProd.forEach(item => {
+       if (item.articlename  === articlename) {
+           item.prodcount = prodCount;
+           localStorage.setItem('allData', JSON.stringify(updateProd));
+       }
+    });
+  }
+
+  /**
+   * Add data first time to localstorage
+   */
+  updateData(data) {
+    const getData = JSON.parse(localStorage.getItem('allData'));
+    if (getData) {
+      // Parse the serialized data back into an aray of objects
+      this.a = JSON.parse(localStorage.getItem('allData'));
+    }
+    // Push the new data (whether it be an object or anything else) onto the array
+    this.a.push(data);
+    // Re-serialize the array back into a string and store it in localStorage
+    localStorage.setItem('allData', JSON.stringify(this.a));
+   console.log(this.a);
+  }
+
 
   /**
    * save article name

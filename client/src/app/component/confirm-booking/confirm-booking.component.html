@@ -7,42 +7,193 @@
     </div>
     <div class="row">
         <div class="col-md-7 border-right">
-            <app-personalized-moving-quote></app-personalized-moving-quote>
+            <!-- <app-personalized-moving-quote></app-personalized-moving-quote> -->
+            <!-- This section can be common -->
+            <form #movingDetail="ngForm" class="container p-3 m-auto">
+                <h4 class="mt-2 mb-3 text-center">PERSONALISED MOVING QUOTE:-</h4>
+
+                <!-- <div class="form-group">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="myDatepicker" [min]="minDate" placeholder="mm/dd/yyyy" name="userdate" [(ngModel)]="userdate" required>
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker disabled="false" touchUi="true"></mat-datepicker>
+                    </mat-form-field>
+                    <p *ngIf="!userdate.valid && userdate.touched">
+                        <span class="has-error" *ngIf="userdate.errors?.required">Date can not be empty</span>
+                    </p>
+                </div> -->
+
+                <div class="row no-gutters justify-content-around">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="From Location" name="fromLocation" [(ngModel)]="fromLocation" required>
+                            </mat-form-field>
+                            <p *ngIf="!fromLocation.valid && fromLocation.touched">
+                                <span class="has-error" *ngIf="fromLocation.errors?.required">Please enter From Location</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Drop Location" name="dropLocation" [(ngModel)]="dropLocation" ngModel required>
+                            </mat-form-field>
+                            <p *ngIf="!dropLocation.valid && dropLocation.touched">
+                                <span class="has-error" *ngIf="dropLocation.errors?.required">Please enter Drop Location</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Pick up Floor" name="pickupFloor" [(ngModel)]="pickupFloor" ngModel required>
+                            </mat-form-field>
+                            <p *ngIf="!pickupFloor.valid && pickupFloor.touched">
+                                <span class="has-error" *ngIf="pickupFloor.errors?.required">Please enter Pick Up Floor</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Drop Floor" name="dropFloor" [(ngModel)]="dropFloor" ngModel required>
+                            </mat-form-field>
+                            <p *ngIf="!dropFloor.valid && dropFloor.touched">
+                                <span class="has-error" *ngIf="dropFloor.errors?.required">Please enter Drop Floor</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 mt-2">
+                        <div class="form-group">
+                            <mat-checkbox name="pickupLocation1" [(ngModel)]="pickupLocation1">Elevator at Pickup Location</mat-checkbox>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 mt-2">
+                        <div class="form-group">
+                            <mat-checkbox name="dropLocation1" [(ngModel)]="dropLocation1">Elevator at Drop Location</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters justify-content-around align-items-center mt-3">
+                    <div class="col-sm-1">
+                        <div class="form-group">
+                            Services
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-select placeholder="Domestic Relocation" name="relocation" [(ngModel)]="relocation" ngModel required>
+                                    <mat-option value="International Relocation">
+                                        International Relocation
+                                    </mat-option>
+                                    <mat-option value="Corporate Relocation">
+                                        Corporate Relocation
+                                    </mat-option>
+                                    <mat-option value="Office Relocation">
+                                        Office Relocation
+                                    </mat-option>
+                                    <mat-option value="Car Transportation">
+                                        Car Transportation
+                                    </mat-option>
+                                    <mat-option value="Warehouse and Storage">
+                                        Warehouse and Storage
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <p *ngIf="!relocation.valid && relocation.touched">
+                                <span class="has-error" *ngIf="relocation.errors?.required">Please select Relocation</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-select placeholder="Enter BHK" name="bhk" [(ngModel)]="bhk" ngModel required>
+                                    <mat-option value="1 bhk">
+                                        1 BHK
+                                    </mat-option>
+                                    <mat-option value="2 bhk">
+                                        2 BHK
+                                    </mat-option>
+                                    <mat-option value="3 bhk">
+                                        3 BHK
+                                    </mat-option>
+                                    <mat-option value="4 bhk">
+                                        4 BHK
+                                    </mat-option>
+                                    <mat-option value="5 bhk">
+                                        5 BHK
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <p *ngIf="!bhk.valid && bhk.touched">
+                                <span class="has-error" *ngIf="bhk.errors?.required">Please select bhk</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="col-md-5 ">
             <form #confirmBook="ngForm" class="w-90 m-auto">
                 <h4>CONFIRM</h4>
                 <div class="form-group">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Name" name="name" #name="ngModel" ngModel required>
+                        <input matInput placeholder="Full Name" name="fullname" #fullname="ngModel" ngModel required>
                     </mat-form-field>
+                    <p *ngIf="!fullname.valid && fullname.touched">
+                        <span class="has-error" *ngIf="fullname.errors?.required">Please enter your name</span>
+                    </p>
                 </div>
 
                 <div class="form-group">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Email" name="email" #email="ngModel" ngModel required>
+                        <input matInput placeholder="Email" name="email" #email="ngModel" ngModel email required>
                     </mat-form-field>
+                    <p *ngIf="!email.valid && email.touched">
+                        <span class="has-error" *ngIf="email.errors?.required">Please enter your Email</span>
+                        <span class="has-error" *ngIf="email.errors?.email">Email Format is not correct</span>
+                    </p>
                 </div>
                 <div class="form-group">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Phone number" name="phno" #phno="ngModel" ngModel required>
+                        <input matInput placeholder="Phone number" [min]='10' name="phno" #phno="ngModel" ngModel number required>
                     </mat-form-field>
+                    <p *ngIf="!phno.valid && phno.touched">
+                        <span class="has-error" *ngIf="phno.errors?.required">Please enter your Number</span>
+                        <span class="has-error" *ngIf="phno.errors?.number">Enter Number</span>
+                        <span class="has-error" *ngIf="phno.errors?.min">Enter Valid Phone number</span>
+
+                    </p>
                 </div>
 
                 <div class="form-group">
                     <mat-form-field>
-                        <textarea matInput placeholder="From Full Address"></textarea>
+                        <textarea matInput placeholder="From Full Address" name="fromAddr" #fromAddr="ngModel" ngModel required></textarea>
                     </mat-form-field>
+                    <p *ngIf="!fromAddr.valid && fromAddr.touched">
+                        <span class="has-error" *ngIf="fromAddr.errors?.required">Please enter From Address</span>
+                    </p>
                 </div>
 
                 <div class="form-group">
                     <mat-form-field>
-                        <textarea matInput placeholder="Destination Full address"></textarea>
+                        <textarea matInput placeholder="Destination Full address" name="toAddr" #toAddr="ngModel" ngModel required></textarea>
                     </mat-form-field>
+                    <p *ngIf="!toAddr.valid && toAddr.touched">
+                        <span class="has-error" *ngIf="toAddr.errors?.required">Please enter To Address</span>
+                    </p>
                 </div>
 
                 <div class="form-group">
-                    <button mat-raised-button color="accent">Submit</button>
+                    <button mat-raised-button color="accent" (click)="sendConfirmBook(confirmBook)" [disabled]="!confirmBook.valid">Submit</button>
                 </div>
             </form>
         </div>
