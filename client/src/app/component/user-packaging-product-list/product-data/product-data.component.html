@@ -1,10 +1,11 @@
-<div class="product-data-wrapper" [ngClass]="{'full-width':isFullWidth}">
+<!-- <div class="product-data-wrapper" [ngClass]="{'full-width':isFullWidth}"> -->
+<div class="product-data-wrapper" [ngClass]="{'full-width':true}">
     <h1>product data</h1>
     <div class="row justify-space-evenly no-gutters">
         <div class="w-15" *ngFor="let list of allList | filterBy: filterListname">
             <i class="{{list.iconname}}"></i>
             <p>{{list.articlelistname}}</p>
-            <app-update-product-count></app-update-product-count>
+            <app-update-product-count [filterarticle]="list.articlename" [iconname]="list.iconname" [articlename]="list.articlelistname"></app-update-product-count>
         </div>
     </div>
 </div>
