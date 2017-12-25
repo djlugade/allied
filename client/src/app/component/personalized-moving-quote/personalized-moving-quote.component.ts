@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./personalized-moving-quote.component.css']
 })
 export class PersonalizedMovingQuoteComponent implements OnInit {
-<<<<<<< HEAD
-  
+
   constructor(private auth: UserDetailsService, private router: Router) { }
 
   minDate = new Date(Date.now() + 48 * 3600 * 1000);
@@ -23,9 +22,9 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
 
   saveTempData(form: NgForm) {
     let pickupLocation: string = form.value.pickupLocation;
-    let dropLocation: string = form.value.dropLocation;
+    let dropLocation1: string = form.value.elevdropLocation;
     pickupLocation = (pickupLocation) ? 'Yes' : 'No';
-    dropLocation = (dropLocation) ? 'Yes' : 'No';
+    dropLocation1 = (dropLocation1) ? 'Yes' : 'No';
     const formValue = {
                     'userDate': form.value.userdate,
                     'fromLocation': form.value.fromLocation,
@@ -33,19 +32,19 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
                     'pickupFloor': form.value.pickupFloor,
                     'dropFloor': form.value.dropFloor,
                     'elevatorPickupLoc': pickupLocation,
-                    'elevatorDropLoc': dropLocation,
+                    'elevatorDropLoc': dropLocation1,
                     'relocation': form.value.relocation,
                     'bhk': form.value.bhk
                     };
-
-      this.auth.saveuserDetails(formValue).take(1).subscribe( data => {
-        if (!data.success) {
-           return;
-        }
-
+        localStorage.setItem('movingDetails', JSON.stringify(formValue));
         console.log('succesfully added');
-        this.router.navigate(['/login']);
-      });
+      // this.auth.saveuserDetails(formValue).take(1).subscribe( data => {
+      //   if (!data.success) {
+      //      return;
+      //   }
+      //   console.log('succesfully added');
+      //   this.router.navigate(['/login']);
+      // });
     }
 }
 
