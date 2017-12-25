@@ -24,9 +24,9 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
   }
 
   saveTempData(form: NgForm) {
-    let pickupLocation1: string = form.value.pickupLocation1;
-    let dropLocation1: string = form.value.dropLocation1;
-    pickupLocation1 = (pickupLocation1) ? 'Yes' : 'No';
+    let pickupLocation: string = form.value.pickupLocation;
+    let dropLocation1: string = form.value.elevdropLocation;
+    pickupLocation = (pickupLocation) ? 'Yes' : 'No';
     dropLocation1 = (dropLocation1) ? 'Yes' : 'No';
     const formValue = {
                     'userDate': form.value.userdate,
@@ -34,7 +34,7 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
                     'dropLocation': form.value.dropLocation,
                     'pickupFloor': form.value.pickupFloor,
                     'dropFloor': form.value.dropFloor,
-                    'elevatorPickupLoc': pickupLocation1,
+                    'elevatorPickupLoc': pickupLocation,
                     'elevatorDropLoc': dropLocation1,
                     'relocation': form.value.relocation,
                     'bhk': form.value.bhk
@@ -46,7 +46,6 @@ export class PersonalizedMovingQuoteComponent implements OnInit {
       //   if (!data.success) {
       //      return;
       //   }
-
       //   console.log('succesfully added');
       //   this.router.navigate(['/login']);
       // });
